@@ -320,3 +320,29 @@ Capslock = ($translate) ->
     return {link:link}
 
 module.directive("tgCapslock", ["$translate", Capslock])
+
+Svg = () ->
+    template = """
+    <svg class="{{ 'icon ' + svgIcon }}">
+        <use xlink:href="" ng-attr-xlink:href="{{ '#' + svgIcon }}">
+            <title ng-if="svgTitle">{{svgTitle}}</title>
+            <title
+                ng-if="svgTitleTranslate"
+                translate="{{svgTitleTranslate}}"
+                translate-values="{{svgTitleTranslateValues}}"
+                ></title>
+        </use>
+    </svg>
+    """
+
+    return {
+        scope: {
+            svgIcon: "@",
+            svgTitle: "@",
+            svgTitleTranslate: "@",
+            svgTitleTranslateValues: "="
+        },
+        template: template
+    }
+
+module.directive("tgSvg", [Svg])
