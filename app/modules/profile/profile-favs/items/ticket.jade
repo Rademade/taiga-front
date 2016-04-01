@@ -1,4 +1,4 @@
-div.list-itemtype-ticket(ng-class="{'blocked-project': vm.item.get('project_blocked_code')}")
+.list-itemtype-ticket(ng-class="{'blocked-project': vm.item.get('project_blocked_code')}")
     a.list-itemtype-avatar(
         href=""
         ng-if="::vm.item.get('assigned_to')"
@@ -20,7 +20,7 @@ div.list-itemtype-ticket(ng-class="{'blocked-project': vm.item.get('project_bloc
             alt="{{ 'COMMON.ASSIGNED_TO.NOT_ASSIGNED'|translate }}"
         )
 
-    div.list-itemtype-ticket-data
+    .list-itemtype-ticket-data
         p
             span.ticket-project
                 | {{:: vm.item.get('project_name') }}
@@ -36,11 +36,12 @@ div.list-itemtype-ticket(ng-class="{'blocked-project': vm.item.get('project_bloc
                 ng-if="::vm.item.get('type') === 'issue'"
                 translate="COMMON.ISSUE"
             )
-            span.ticket-status(ng-style="::{'color': vm.item.get('status_color')}")
-                | {{:: vm.item.get('status') }}
-            svg.icon.icon-blocked-project(ng-if="vm.item.get('project_blocked_code')")
-                use(xlink:href="#icon-blocked-project")
-                    title(translate="PROJECT.BLOCKED_PROJECT.BLOCKED")
+            span.ticket-status(ng-style="::{'color': vm.item.get('status_color')}") {{:: vm.item.get('status') }}
+            tg-svg(
+                ng-if="vm.item.get('project_blocked_code')"
+                svg-icon="icon-blocked-project"
+                svgTitleTranslate: "PROJECT.BLOCKED_PROJECT.BLOCKED"
+            )
         h2
             span.ticket-id(tg-bo-ref="vm.item.get('ref')")
             a.ticket-title(
