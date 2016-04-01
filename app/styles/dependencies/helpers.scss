@@ -27,6 +27,7 @@
     .close {
         @include svg-size(2rem);
         cursor: pointer;
+        display: block;
         fill: $gray;
         position: absolute;
         right: 3rem;
