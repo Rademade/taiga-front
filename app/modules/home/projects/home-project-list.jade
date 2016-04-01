@@ -29,7 +29,7 @@ section.home-project-list(ng-if="vm.projects.size")
                         title="{{::project.get('name')}}"
                     ) {{::project.get('name')}}
 
-                    tg-svg(
+                    tg-svg.look-for-people(
                         ng-if="project.get('is_looking_for_people')"
                         svg-icon="icon-recruit"
                         svg-title="{{ ::project.get('looking_for_people_note') }}"

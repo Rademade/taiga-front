@@ -26,11 +26,11 @@
                             tg-nav="project:project=project.get('slug')"
                             title="{{::project.get('name')}}"
                         ) {{::project.get('name')}}
-                        svg.look-for-people.icon.icon-recruit(
+                        tg-svg.look-for-people(
                             ng-if="project.get('is_looking_for_people')"
+                            svg-icon="icon-recruit"
+                            svg-title="{{ ::project.get('looking_for_people_note') }}"
                         )
-                            use(xlink:href="#icon-recruit")
-                                title="{{ ::project.get('looking_for_people_note') }}"
                 p.project-card-description {{ ::project.get('description') | limitTo:100 }}{{ ::project.get('description').length < 100 ? '' : '...'}}
                 .project-card-statistics
                     span.statistic(
