@@ -340,7 +340,8 @@ Svg = () ->
             svgIcon: "@",
             svgTitle: "@",
             svgTitleTranslate: "@",
-            svgTitleTranslateValues: "="
+            svgTitleTranslateValues: "=",
+            svgClass
         },
         template: template
     }
