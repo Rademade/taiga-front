@@ -321,6 +321,19 @@ Capslock = ($translate) ->
 
 module.directive("tgCapslock", ["$translate", Capslock])
 
+LightboxClose = () ->
+    template = """
+        <a class="close" href="" title="{{'COMMON.CLOSE' | translate}}">
+            <tg-svg svg-icon="icon-close"></tg-svg>
+        </a>
+    """
+
+    return {
+        template: template
+    }
+
+module.directive("tgLightboxClose", [LightboxClose])
+
 Svg = () ->
     template = """
     <svg class="{{ 'icon ' + svgIcon }}">
