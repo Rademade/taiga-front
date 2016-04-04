@@ -111,8 +111,3 @@ body {
         margin-bottom: 0;
     }
 }
-
-// Prevent IE Bug when the user clicks in the svg path the js event click doesn't work
-svg {
-    pointer-events: none;
-}
