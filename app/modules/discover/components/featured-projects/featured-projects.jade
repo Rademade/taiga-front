@@ -37,20 +37,17 @@
                         ng-class="{'active': project.get('is_fan')}"
                         title="{{ 'PROJECT.FANS_COUNTER_TITLE'|translate:{total:project.get('total_fans')||0}:'messageformat' }}"
                     )
-                        svg.icon.icon-like
-                            use(xlink:href="#icon-like")
+                        tg-svg(svg-icon="icon-like")
                         span {{::project.get('total_fans')}}
                     span.statistic(
                         ng-class="{'active': project.get('is_watcher')}"
                         title="{{ 'PROJECT.WATCHERS_COUNTER_TITLE'|translate:{total:project.get('total_watchers')||0}:'messageformat' }}"
                     )
-                        svg.icon.icon-watch
-                            use(xlink:href="#icon-watch")
+                        tg-svg(svg-icon="icon-watch")
                         span {{::project.get('total_watchers')}}
                     span.statistic(
                         ng-class="{'active': project.get('i_am_member')}"
                         title="{{ 'PROJECT.MEMBERS_COUNTER_TITLE'|translate:{total:project.get('members').size||0}:'messageformat' }}"
                     )
-                        svg.icon.icon-team
-                            use(xlink:href="#icon-team")
+                        tg-svg(svg-icon="icon-team")
                         span.statistics-num {{ ::project.get('members').size }}
