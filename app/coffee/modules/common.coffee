@@ -284,42 +284,16 @@ module.factory("$tgTemplate", ["$templateCache", Template])
 ## Permission directive, hide elements when necessary
 #############################################################################
 
-Capslock = ($translate) ->
-    link = ($scope, $el, $attrs) ->
-        open = false
+Capslock = () ->
+    template = """
+        <tg-svg class="capslock" ng-if="capslockIcon && iscapsLockActivated" svg-icon='icon-capslock' svg-title='COMMON.CAPSLOCK_WARNING'></tg-svg>
+    """
 
+    return {
+        template: template
+    }
 
-        warningIcon = "<svg class='icon icon-capslock' title='" + $translate.instant('COMMON.CAPSLOCK_WARNING') + "'><use xlink:href='#icon-capslock'></svg>";
-
-        hideIcon = () ->
-            $('.icon-capslock').fadeOut () ->
-                open = false
-
-                $(this).remove()
-
-        showIcon = (e) ->
-            return if open
-            element = e.currentTarget
-            $(element).parent().append(warningIcon)
-            $('.icon-capslock').fadeIn()
-
-            open = true
-
-        $el.on 'blur', (e) ->
-            hideIcon()
-
-        $el.on 'keyup.capslock, focus', (e) ->
-            if $el.val() == $el.val().toLowerCase()
-                hideIcon(e)
-            else
-                showIcon(e)
-
-        $scope.$on "$destroy", ->
-            $el.off('.capslock')
-
-    return {link:link}
-
-module.directive("tgCapslock", ["$translate", Capslock])
+module.directive("tgCapslock", [Capslock])
 
 LightboxClose = () ->
     template = """
